@@ -33,6 +33,10 @@
 
 <body>
 
+    <header>
+        <h1>Spooky Candy Collection</h1>
+    </header>
+
     <div>
         <h1>id of clicked div:</h1>
         <span id="output-span"></span>
@@ -56,7 +60,7 @@
 
             const newDiv = document.createElement("div");
             newDiv.className = "styled-div";
-            newDiv.textContent = "I am candy! My number is " + number + "!";
+            newDiv.textContent = "I am candy! My kind of candy is " + number + "!";
             newDiv.id = "dynamic-div-" + number;
 
             // Add event listeners for mouse over and mouse out
