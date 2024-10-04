@@ -74,6 +74,7 @@
 
     <script>
         let divNum = 1;
+        var image = document.createElement("img");
         // Function to create a new div
         function createDiv(number) {
 
@@ -106,9 +107,6 @@
         for (let i = 0; i < 6; i++) {
             createDiv(divNum);
             divNum++;
-
-            document.getElementsByClassName("styled-div").appendChild(image);
-            image.src = "";
         }
 
         // Add a div when the button is clicked
