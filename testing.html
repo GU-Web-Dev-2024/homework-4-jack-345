@@ -15,6 +15,7 @@
             transition: background-color 0.3s;
             color: rgb(151, 51, 209);
             border-radius: 25px;
+            width: 150px;
         }
 
         .container {
@@ -36,6 +37,7 @@
             text-align: center;
             background-color: #ab1d4f;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding: 10px;
         }
 
         body {
@@ -47,6 +49,14 @@
             text-align: center;
             background-color: #ab1d4f;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding: 10px;
+        }
+
+        .styled-div img {
+            display: block;
+            margin: 10px auto;
+            width: 100px;
+            height: auto;
         }
 
     </style>
@@ -74,19 +84,29 @@
     <script>
         let divNum = 1;
         let candyNames = ["Snickers", "Skittles", "Twix", "KitKat", "Jolly Rancher", "Starburst"];
+        let candyImages = ["snickers.jpg", "skittles.jpg", "twix.jpg", "kitkat.jpg", "jolly rancher.jpg", "starburst.jpg"];
 
-        function createDiv(candyName) {
+        function createDiv(candyName, candyImage) {
             const newDiv = document.createElement("div");
             newDiv.className = "styled-div";
-            newDiv.textContent = "I am candy! My kind of candy is " + candyName + "!";  // Use candy name directly
+            newDiv.textContent = "I am candy! My kind of candy is " + candyName + "!"; 
             newDiv.id = "dynamic-div-" + divNum;
             divNum++;
 
-            // Add event listeners for mouse over and mouse out
+            //adding images into div containers
+            const candyImg = document.createElement("img");
+            candyImg.src = candyImage;
+            candyImg.alt = candyName;
+            candyImg.style.width = "100px";
+            candyImg.style.height = "auto";
+            //appending images
+            newDiv.appendChild(candyImg);
+
+            //changes background color to sihow mouse cursor over element
             newDiv.addEventListener("mouseover", () => {
                 newDiv.style.backgroundColor = "#fbfaf4";
             });
-
+            //reverts background color to show mouse cursor leaving element
             newDiv.addEventListener("mouseout", () => {
                 newDiv.style.backgroundColor = "";
             });
@@ -95,17 +115,17 @@
             newDiv.addEventListener("click", announceId);
 
             document.getElementById("div-container").appendChild(newDiv);
-            }
+            };
 
         // Function to announce the div's ID on click
         function announceId(event) {
-            alert("You clicked on " + event.target.id);
-        }
+            //alert("You clicked on " + event.target.id);
+        };
 
         // Add the initial 6 divs
         for (let i = 0; i < candyNames.length; i++) {
-            createDiv(candyNames[i]);  // Pass candy name directly
-        }
+            createDiv(candyNames[i], candyImages[i]);  // Pass candy name directly
+        };
 
         const divs = document.querySelectorAll("div[id^='dynamic-div-']");
 
