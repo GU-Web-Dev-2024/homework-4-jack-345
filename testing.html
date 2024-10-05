@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Divs</title>
+    <title>Homework 4: Halloween Themed Candy Collection</title>
     <style>
         .styled-div {
             border: 2px solid brown;
@@ -56,7 +56,7 @@
 
     <main>
         <div>
-            <h1>id of clicked div:</h1>
+            <h1>id of candy div:</h1>
             <span id="output-span"></span>
         </div>
     
@@ -75,7 +75,9 @@
 
     <script>
         let divNum = 1;
-        var image = document.createElement("img");
+        let candyNames = ["Snickers", "Skittles", "Twix", "KitKat", "Jolly Rancher", "Starburst"];
+
+        /*
         // Function to create a new div
         function createDiv(number) {
 
@@ -86,7 +88,7 @@
 
             const newDiv = document.createElement("div");
             newDiv.className = "styled-div";
-            newDiv.textContent = "I am candy! My kind of candy is " + number + "!";
+            newDiv.textContent = "I am candy! My kind of candy is " + getCandyNames(candyNames) + "!";
             newDiv.id = "dynamic-div-" + number;
 
             // Add event listeners for mouse over and mouse out
@@ -102,16 +104,39 @@
             newDiv.addEventListener("click", announceId);
 
             document.getElementById("div-container").appendChild(newDiv);
+        }*/
+
+        function createDiv(candyName) {
+            const newDiv = document.createElement("div");
+            newDiv.className = "styled-div";
+            newDiv.textContent = "I am candy! My kind of candy is " + candyName + "!";  // Use candy name directly
+            newDiv.id = "dynamic-div-" + divNum;
+            divNum++;
+
+            // Add event listeners for mouse over and mouse out
+            newDiv.addEventListener("mouseover", () => {
+                newDiv.style.backgroundColor = "#fff000";
+            });
+
+            newDiv.addEventListener("mouseout", () => {
+                newDiv.style.backgroundColor = "";
+            });
+
+            // Event handler for the dynamic object
+            newDiv.addEventListener("click", announceId);
+
+            document.getElementById("div-container").appendChild(newDiv);
+            }
+
+        // Function to announce the div's ID on click
+        function announceId(event) {
+            alert("You clicked on " + event.target.id);
         }
 
         // Add the initial 6 divs
-        for (let i = 0; i < 6; i++) {
-            createDiv(divNum);
-            divNum++;
+        for (let i = 0; i < candyNames.length; i++) {
+            createDiv(candyNames[i]);  // Pass candy name directly
         }
-
-        // Add a div when the button is clicked
-        document.getElementById("add-div-button").addEventListener("click", createDiv);
 
         const divs = document.querySelectorAll("div[id^='dynamic-div-']");
 
