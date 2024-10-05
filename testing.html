@@ -11,7 +11,7 @@
             padding: 20px;
             margin: 10px;
             text-align: center;
-            font-family: Arial, sans-serif;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
             transition: background-color 0.3s;
             color: rgb(151, 51, 209);
             border-radius: 25px;
@@ -34,6 +34,8 @@
         header {
             color: lightsalmon;
             text-align: center;
+            background-color: #ab1d4f;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
 
         body {
@@ -43,6 +45,8 @@
         footer {
             color: lightsalmon;
             text-align: center;
+            background-color: #ab1d4f;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
 
     </style>
@@ -55,16 +59,10 @@
     </header>
 
     <main>
-        <div>
-            <h1>id of candy div:</h1>
-            <span id="output-span"></span>
-        </div>
     
         <div class="container" id="div-container">
-            <!-- Divs will be generated here -->
+            <!--divs generated here-->
         </div>
-    
-        <button id="add-div-button">Add a Candy</button>
 
     </main>
 
@@ -77,35 +75,6 @@
         let divNum = 1;
         let candyNames = ["Snickers", "Skittles", "Twix", "KitKat", "Jolly Rancher", "Starburst"];
 
-        /*
-        // Function to create a new div
-        function createDiv(number) {
-
-            if (!parseInt(number)) {
-                number = divNum;
-                divNum++;
-            }
-
-            const newDiv = document.createElement("div");
-            newDiv.className = "styled-div";
-            newDiv.textContent = "I am candy! My kind of candy is " + getCandyNames(candyNames) + "!";
-            newDiv.id = "dynamic-div-" + number;
-
-            // Add event listeners for mouse over and mouse out
-            newDiv.addEventListener("mouseover", () => {
-                newDiv.style.backgroundColor = "#fff000";
-            });
-
-            newDiv.addEventListener("mouseout", () => {
-                newDiv.style.backgroundColor = "";
-            });
-
-            //need to add event handler for dynamic object
-            newDiv.addEventListener("click", announceId);
-
-            document.getElementById("div-container").appendChild(newDiv);
-        }*/
-
         function createDiv(candyName) {
             const newDiv = document.createElement("div");
             newDiv.className = "styled-div";
@@ -115,7 +84,7 @@
 
             // Add event listeners for mouse over and mouse out
             newDiv.addEventListener("mouseover", () => {
-                newDiv.style.backgroundColor = "#fff000";
+                newDiv.style.backgroundColor = "#fbfaf4";
             });
 
             newDiv.addEventListener("mouseout", () => {
@@ -143,16 +112,6 @@
         divs.forEach(item => {
             item.addEventListener("click", announceId);
         });
-
-        // function announceId() {
-        //     //alert("My id is: " + this.id);
-        //     document.getElementById("output-span").textContent = "My id is: " + this.id
-        // }
-
-        function announceId(event) {
-            //alert("My id is: " + this.id);
-            document.getElementById("output-span").textContent = "My id is: " + event.target.id;
-        }
 
     </script>
 
